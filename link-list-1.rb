@@ -1,16 +1,17 @@
 class LinkedListNode
-  attr_accessor :value, :nextNode
+  attr_accessor :value, :next_node
 
-  def initialize(value, nextNode=nil)
+  def initialize(value, next_node=nil)
     @value = value
-    @nextNode = nextNode
+    @next_node = next_node
   end
 end
 
+  # To output the contents of the linked list
   def print_values(list_node)
     if list_node
       print "#{list_node.value} --> "
-      print_values(list_node.nextNode)
+      print_values(list_node.next_node)
     else
       print "nil\n"
       return
@@ -32,15 +33,16 @@ class Stack
 
     # Pop an item off the stack
     # When we pop from the stack it prints @data.value which is at the top of the stack
-    # Then it will set the stack to be the nextNode removing the LinkListNode from the stack
+    # Then it will set the stack to be the next_node removing the LinkListNode from the stack
     # Return the value to the user
   def pop
     return nil if @data.nil?
       returning_value = @data.value
-      @data = @data.nextNode
+      @data = @data.next_node
       returning_value
   end
 end
+
   
   # Create an instance of Stack (stack = Stack.new) an empty stack
   # Then do push and pop operation using this instance
@@ -48,7 +50,7 @@ end
     stack = Stack.new
     while list
       stack.push(list.value)
-      list = list.nextNode
+      list = list.next_node
     end
     LinkedListNode.new(stack.pop, stack.data)
   end
@@ -72,21 +74,21 @@ revlist = reverse_list(node3)
 print_values(revlist)
 
 #creates a new Stack Object
-#stack = Stack.new
+stack = Stack.new
 
 puts "------------------------"
 #Pushes (adds) the number 1 to the empty stack
-#stack.push(1)
+stack.push(1)
 
 #Pushes the number 2 to the top of the stack
-#stack.push(2)
+stack.push(2)
 
 #Pops (removes) the top number from the stack (2)
-#puts stack.pop    #=>2
+puts stack.pop    #=>2
 
 #Pops the remaining number from the stack (1)
-#puts stack.pop    #=>1
+puts stack.pop    #=>1
 
 #Tries to pop the Top number from the stack,
 #but it is empty so it retuns nil
-#puts stack.pop    #=> 0
+puts stack.pop    #=> 0
