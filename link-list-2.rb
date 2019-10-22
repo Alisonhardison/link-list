@@ -27,7 +27,7 @@ end
   def print_values(list_node)
     if list_node
       print "#{list_node.value} --> "
-      print_values(list_node.next_node)
+      print_values(list_node.next_node)     #this is where the recurision is happening by calling print_values inside the print_values method
     else
       print "nil\n"
       return
